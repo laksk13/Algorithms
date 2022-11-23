@@ -147,12 +147,12 @@ public class Rectangle {
         Rectangle intersectingRect = findIntersectingRectangle(other);
         if(intersectingRect.getWidth() == 0 && intersectingRect.getHeight() == 0)
         {
-            return true; //partial adjacency touching at the corner.
+            return false; //touching at the corner, may be not called adjacent, TODO: Need to clarfy.
         }
 
         if(intersectingRect.getWidth() == 0)
         {
-           if(other.getTopRightPoint().getY()>this.getTopRightPoint().getY() ||
+            if(other.getTopRightPoint().getY()>this.getTopRightPoint().getY() ||
                     other.getBottomLeftPoint().getY()<this.getBottomLeftPoint().getY())
             {
                 return true; //partial adjacency
@@ -164,6 +164,9 @@ public class Rectangle {
                     other.getBottomLeftPoint().getY()==this.getBottomLeftPoint().getY())
             {
                 return true; //proper adjacency
+            } else
+            {
+                return false;
             }
         }
         if(intersectingRect.getHeight() == 0)
@@ -179,6 +182,8 @@ public class Rectangle {
             }else if(other.getTopRightPoint().getX()==this.getTopRightPoint().getX() && other.getBottomLeftPoint().getX()==this.getBottomLeftPoint().getX())
             {
                 return true; //proper adjacency
+            }else{
+                return false;
             }
         }
 

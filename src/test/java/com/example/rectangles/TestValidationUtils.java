@@ -2,7 +2,7 @@ package com.example.rectangles;
 
 import java.util.List;
 
-import static com.example.rectangles.TestSetupUtils.*;
+import static com.example.rectangles.TestDataSetupUtils.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestValidationUtils {

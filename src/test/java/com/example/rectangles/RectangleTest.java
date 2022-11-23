@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.example.rectangles.TestSetupUtils.*;
+import static com.example.rectangles.TestDataSetupUtils.*;
 import static com.example.rectangles.TestValidationUtils.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -70,5 +70,20 @@ public class RectangleTest {
     @Test
     public void testRectangleNotAdjacency_WithIntersectingRectangles() {
         Arrays.stream(INTERSECTIONTYPE.values()).forEach(enumVal->validateAdjacency(enumVal, false));
+    }
+    @Test
+    public void testRectangleNotRelated_ForIntersection()
+    {
+        Arrays.stream(NONRELATEDTYPE.values()).forEach(enumVal->validateIntersection(enumVal, false));
+    }
+    @Test
+    public void testRectangleNotRelated_ForAdjacency()
+    {
+        Arrays.stream(NONRELATEDTYPE.values()).forEach(enumVal->validateAdjacency(enumVal, false));
+    }
+    @Test
+    public void testRectangleNotRelated_ForContainment()
+    {
+        Arrays.stream(NONRELATEDTYPE.values()).forEach(enumVal->validateContainment(enumVal, false));
     }
 }
